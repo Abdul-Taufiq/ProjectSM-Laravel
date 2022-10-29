@@ -99,16 +99,16 @@ You can also completely customize the look and feel of the results by overriding
     ```
     {%raw%}{{ extends 'partials/simplesearch_base.html.twig' }} {%endraw%}
 
-    {% block content %}
+   {%raw%}{{ block content }} {%endraw%}
         <div class="content-padding">
         <h1 class="search-header">Search Results</h1>
         <h3>Query: "{{ query }}" - Found {{ search_results.count }} {{ 'Item'|pluralize(search_results.count) }}</h3>
 
-        {% for page in search_results %}
-            {% include 'partials/simplesearch_item.html.twig' with {'page':page} %}
-        {% endfor %}
+       {%raw%}{{ for page in search_results }} {%endraw%}
+            {%raw%}{{ include 'partials/simplesearch_item.html.twig' with {'page':page} }} {%endraw%}
+        {%raw%}{{ endfor }} {%endraw%}
         </div>
-    {% endblock %}
+   {%raw%}{{ endblock }} {%endraw%}
     ```
 
 ## 2. Self-Controlled Search Page
